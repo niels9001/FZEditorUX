@@ -5,8 +5,12 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -61,6 +65,18 @@ namespace FZEditor
 
             if (e.PrelaunchActivated == false)
             {
+                CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+                ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(140, 140));
+                ApplicationView appView = ApplicationView.GetForCurrentView();
+                appView.TitleBar.BackgroundColor = Colors.Transparent;
+                appView.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+                appView.TitleBar.ButtonForegroundColor = new Color() { A = 1, R = 0, G = 0, B = 0 };
+                //appView.TitleBar.ButtonForegroundColor = ((SolidColorBrush)Application.Current.Resources["PrimaryTextColor"]).Color;
+                appView.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+                appView.TitleBar.InactiveBackgroundColor = Colors.Transparent;
+                //appView.TitleBar.ForegroundColor = ((SolidColorBrush)Application.Current.Resources["PrimaryTextColor"]).Color;
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+
                 if (rootFrame.Content == null)
                 {
                     // When the navigation stack isn't restored navigate to the first page,

@@ -3,5 +3,28 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FZEditor">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"
+                                       ControlsResourcesVersion="Version2" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="ZoneBackgroundBrush"
+                                     Color="#DFDFDF" />
+                    <SolidColorBrush x:Key="ZoneBorderBrush"
+                                     Color="#8C8C8C" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Default">
+                    <SolidColorBrush x:Key="ZoneBackgroundBrush"
+                                     Color="#4E4E4E" Opacity="0.8" />
+                    <SolidColorBrush x:Key="ZoneBorderBrush" Opacity="0.8"
+                                     Color="#8B8B8B" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 
 </Application>

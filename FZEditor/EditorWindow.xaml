@@ -1,0 +1,295 @@
+﻿<Page
+    x:Class="FZEditor.EditorWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FZEditor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+      xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+      xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <media:AttachedCardShadow x:Key="CommonShadow"
+                                  Opacity="0.04"
+                                  BlurRadius="4"
+                                 Offset="0,2"  />
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot"
+          RowSpacing="6"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition Height="128" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="360" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Top"
+                    Margin="16,8,8,8">
+            <Image Source="ms-appx:///Assets/FancyZones.png"
+                   Width="16" />
+            <TextBlock Style="{StaticResource CaptionTextBlockStyle}"
+                       Margin="12,0,0,0"
+                       Text="FancyZones Editor" />
+        </StackPanel>
+
+        <Grid Grid.Row="2"
+              Grid.RowSpan="2"
+              Margin="48,0,48,48"
+              CornerRadius="8">
+            <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                  Margin="2"
+                  CornerRadius="4"
+                  BorderThickness="1"
+                  Background="{ThemeResource LayerFillColorDefaultBrush}">
+              
+
+
+              
+
+                <Grid Grid.Row="1"
+                      ColumnSpacing="{Binding ElementName=ZoneSpaceNumberBox, Path=Value}"
+                      Margin="12,12,12,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:GridSplitter GripperCursor="Default"
+                                           HorizontalAlignment="Left"
+                                           Grid.Column="1"
+                                           ResizeDirection="Auto"
+                                           ResizeBehavior="BasedOnAlignment"
+                                           CursorBehavior="ChangeOnSplitterHover"
+                                           Width="16">
+                        <controls:GridSplitter.RenderTransform>
+                            <TranslateTransform X="-8" />
+                        </controls:GridSplitter.RenderTransform>
+
+                    </controls:GridSplitter>
+                    <Border Background="{ThemeResource ZoneBackgroundBrush}"
+                            CornerRadius="4,0,0,4"
+                            BorderBrush="{ThemeResource ZoneBorderBrush}"
+                            BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="1"  Style="{StaticResource TitleTextBlockStyle}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Background="{ThemeResource ZoneBackgroundBrush}"
+                            Grid.Column="1"
+                            BorderBrush="{ThemeResource ZoneBorderBrush}"
+                            BorderThickness="1">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <TextBlock Text="2"
+                                       Style="{StaticResource TitleTextBlockStyle}" />
+                        </StackPanel>
+                    </Border>
+                    <Border Background="{ThemeResource ZoneBackgroundBrush}"
+                            CornerRadius="0,4,4,0"
+                            BorderBrush="{ThemeResource ZoneBorderBrush}"
+                            BorderThickness="1"
+                            Grid.Column="2">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <TextBlock Text="3"
+                                       Style="{StaticResource TitleTextBlockStyle}" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.RowSpan="4"
+              
+                Grid.Column="1"
+                
+                Padding="12"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                HorizontalAlignment="Stretch"
+                CornerRadius="0"
+                VerticalAlignment="Stretch"
+                Background="{ThemeResource LayerFillColorDefaultBrush}"
+                BorderThickness="1"
+                ui:Effects.Shadow="{StaticResource CommonShadow}">
+            <StackPanel Orientation="Vertical" MinWidth="240" Margin="8,38,0,0" Spacing="24">
+                <TextBlock FontWeight="SemiBold" FontSize="18" Margin="0,-4,0,0"
+                           Text="Properties" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Spacing="12">
+
+                    <TextBlock Text="&#xE932;" VerticalAlignment="Center" FontFamily="Segoe Fluent Icons" />
+                    <TextBox Text="Focus" Width="288"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Stretch"
+                            Spacing="8">
+
+                    <TextBlock Text="&#xEDA7;"
+                               VerticalAlignment="Center"
+                               FontFamily="Segoe Fluent Icons" />
+                    <Border CornerRadius="4"
+                            Height="36"
+                            Margin="4,0,0,0"
+                            Padding="8,0,8,2"
+                            BorderBrush="{ThemeResource ButtonBorderBrush}"
+                            BorderThickness="1"
+                            Background="{ThemeResource ButtonBackground}">
+                        <TextBlock FontWeight="SemiBold"
+                                   Margin="8"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Text="Ctrl"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   FontSize="13" />
+                    </Border>
+                    <Border CornerRadius="4"
+                            Height="36"
+                            Padding="8,0,8,2"
+                            BorderBrush="{ThemeResource ButtonBorderBrush}"
+                            BorderThickness="1"
+                            Background="{ThemeResource ButtonBackground}">
+                        <TextBlock FontWeight="SemiBold"
+                                   Margin="8"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Text="Alt"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   FontSize="13" />
+                    </Border>
+                    <Border CornerRadius="4"
+                            Height="36"
+                            Padding="8,0,8,2"
+                            BorderBrush="{ThemeResource ButtonBorderBrush}"
+                            BorderThickness="1"
+                            Background="{ThemeResource ButtonBackground}">
+                        <TextBlock FontWeight="SemiBold"
+                                   Margin="8"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Text="1"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   FontSize="13" />
+                    </Border>
+                    <TextBlock Text="&#xE104;"
+                               Margin="4,0,0,0"
+                               VerticalAlignment="Center"
+                               FontFamily="Segoe Fluent Icons" />
+                </StackPanel>
+                <Rectangle Height="1"
+                           Fill="{ThemeResource AppBarSeparatorForeground}" Margin="-16,0,-16,0" />
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Stretch"
+                            Spacing="12">
+
+                    <TextBlock Text="&#xF58A;"
+                               VerticalAlignment="Center"
+                               FontFamily="Segoe Fluent Icons" />
+                    <muxc:NumberBox Text="8"
+                             Width="86"
+                                    x:Name="ZoneSpaceNumberBox"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Center" />
+                    <TextBlock Text="px"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource CaptionTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Stretch"
+                            Spacing="12">
+
+                    <TextBlock Text="&#xE8B3;"
+                               VerticalAlignment="Center"
+                               FontFamily="Segoe Fluent Icons" />
+                    <muxc:NumberBox Text="20"
+                                    Width="86"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center" />
+                    <TextBlock Text="px"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource CaptionTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                </StackPanel>
+
+
+            </StackPanel>
+            <Button Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="12"
+                    Style="{StaticResource AccentButtonStyle}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xE13E;"
+                                   VerticalAlignment="Center"
+                                   Margin="0,2,8,0"
+                                   FontFamily="Segoe Fluent Icons" />
+                        <TextBlock Text="Save &amp; apply" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+        
+        <Border Grid.Row="1"
+                BorderBrush="{ThemeResource FlyoutBorderThemeBrush}"
+                HorizontalAlignment="Center"
+                CornerRadius="4" Grid.RowSpan="2"
+                Margin="24"
+                VerticalAlignment="Top"
+                Background="{ThemeResource FlyoutPresenterBackground}"
+                BorderThickness="1"
+                ui:Effects.Shadow="{StaticResource CommonShadow}">
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                <CommandBar DefaultLabelPosition="Collapsed">
+                    <AppBarToggleButton Width="40"
+                                        ToolTipService.ToolTip="Horizontal split zone">
+                        <AppBarToggleButton.Icon>
+                            <FontIcon FontFamily="Segoe Fluent Icons"
+                                      Glyph="&#xE76F;" />
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
+                    <AppBarToggleButton Width="40"
+                                        ToolTipService.ToolTip="Vertical split zone"> 
+                        <AppBarToggleButton.Icon>
+                            <FontIcon FontFamily="Segoe Fluent Icons"
+                                      Glyph="&#xE784;" />
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
+                    <AppBarToggleButton Width="40"
+                                        ToolTipService.ToolTip="Merge zones">
+                        <AppBarToggleButton.Icon>
+                            <FontIcon FontFamily="Segoe Fluent Icons"
+                                      Glyph="&#xEA5F;" />
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
+                    <AppBarButton Width="40"
+                                  ToolTipService.ToolTip="Full screen">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe Fluent Icons"
+                                      Glyph="&#xE1D9;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
+                </CommandBar>
+                <AppBarSeparator Height="32"
+                                 VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
