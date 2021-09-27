@@ -126,7 +126,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Select layout" Margin="16,16,0,0" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock Text="Layouts" Margin="16,16,0,0" Style="{StaticResource SubtitleTextBlockStyle}" />
 
             <GridView Grid.Row="1"
                       Margin="15,16,16,16"

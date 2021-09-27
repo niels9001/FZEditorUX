@@ -58,7 +58,7 @@
           VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="32" />
-            <RowDefinition Height="86" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
