@@ -41,6 +41,13 @@
                        Text="FancyZones Editor" />
         </StackPanel>
 
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Focus"
+                       Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="&#xE104;"
+                       FontFamily="Segoe Fluent Icons"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+        </StackPanel>
         <Grid Grid.Row="2"
               Grid.RowSpan="2"
               Margin="48,0,48,48"
@@ -50,10 +57,6 @@
                   CornerRadius="4"
                   BorderThickness="1"
                   Background="{ThemeResource LayerFillColorDefaultBrush}">
-              
-
-
-              
 
                 <Grid Grid.Row="1"
                       ColumnSpacing="{Binding ElementName=ZoneSpaceNumberBox, Path=Value}"
