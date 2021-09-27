@@ -19,7 +19,7 @@
           VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="32" />
-            <RowDefinition Height="128" />
+            <RowDefinition Height="96" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"
@@ -54,13 +54,14 @@
                           Background="{ThemeResource LayerFillColorDefaultBrush}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="20" />
+                            <RowDefinition Height="22" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="1"
                                    HorizontalAlignment="Center"
                                    Grid.Row="0"
                                    FontWeight="SemiBold"
                                    FontSize="22"
+                                   Margin="0,4,0,0"
                                    Style="{StaticResource SubheaderTextBlockStyle}"
                                    VerticalAlignment="Center" />
                         
@@ -77,8 +78,8 @@
             <GridViewItem Shadow="{StaticResource CardShadow}"
                           CornerRadius="4"
                           Translation="0,0,8">
-                <Grid Width="196"
-                      Height="86">
+                <Grid Width="146"
+                      Height="56">
                     <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                           Margin="-2"
                           CornerRadius="4"
@@ -86,11 +87,13 @@
                           Background="{ThemeResource LayerFillColorDefaultBrush}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="28" />
+                            <RowDefinition Height="22" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="2"
                                    HorizontalAlignment="Center"
                                    Grid.Row="0"
+                                   FontSize="22"
+                                   Margin="0,4,0,0"
                                    FontWeight="SemiBold"
                                    Style="{StaticResource SubheaderTextBlockStyle}"
                                    VerticalAlignment="Center" />
@@ -99,6 +102,7 @@
                                    HorizontalAlignment="Center"
                                   Margin="0,0,0,0"
                                    Grid.Row="1"
+                                   FontSize="10"
                                    VerticalAlignment="Top"
                                    Style="{StaticResource CaptionTextBlockStyle}"
                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -152,12 +156,15 @@
                             <TextBlock Text="Focus"
                                        HorizontalAlignment="Left"
                                        Grid.Row="0"
-                                       Margin="12,12,12,2"
+                                       Margin="16,16,0,4"
                                        VerticalAlignment="Top"
                                        Style="{StaticResource BodyTextBlockStyle}"
                                        FontWeight="SemiBold" />
 
-                            <Grid Grid.Row="1" ColumnSpacing="6" Margin="12,12,12,12">
+
+                            <Grid Grid.Row="1"
+                                  ColumnSpacing="6"
+                                  Margin="16">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="3*" />
@@ -198,14 +205,15 @@
                             <TextBlock Text="Meeting"
                                        HorizontalAlignment="Left"
                                        Grid.Row="0"
-                                       Margin="12,12,12,2"
+                                       Margin="16,16,0,4"
                                        VerticalAlignment="Top"
                                        Style="{StaticResource BodyTextBlockStyle}"
                                        FontWeight="SemiBold" />
 
+
                             <Grid Grid.Row="1"
                                   ColumnSpacing="6"
-                                  Margin="12,12,12,12">
+                                  Margin="16">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="2*" />
@@ -246,15 +254,16 @@
                             <TextBlock Text="Grid"
                                        HorizontalAlignment="Left"
                                        Grid.Row="0"
-                                       Margin="12,12,12,2"
+                                       Margin="16,16,0,4"
                                        VerticalAlignment="Top"
                                        Style="{StaticResource BodyTextBlockStyle}"
                                        FontWeight="SemiBold" />
 
+
                             <Grid Grid.Row="1"
                                   RowSpacing="6"
                                   ColumnSpacing="6"
-                                  Margin="12,12,12,12">
+                                  Margin="16">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
@@ -308,7 +317,7 @@
                             <TextBlock Text="Stream"
                                        HorizontalAlignment="Left"
                                        Grid.Row="0"
-                                       Margin="24,24,0,0"
+                                       Margin="16,16,0,4"
                                        VerticalAlignment="Top"
                                        Style="{StaticResource BodyTextBlockStyle}"
                                        FontWeight="SemiBold" />
@@ -316,7 +325,7 @@
                             <Grid Grid.Row="1"
                                   RowSpacing="6"
                                   ColumnSpacing="6"
-                                  Margin="24">
+                                  Margin="16">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
@@ -378,15 +387,16 @@
                             <TextBlock Text="Columns"
                                        HorizontalAlignment="Left"
                                        Grid.Row="0"
-                                       Margin="12,12,12,2"
+                                       Margin="16,16,0,4"
                                        VerticalAlignment="Top"
                                        Style="{StaticResource BodyTextBlockStyle}"
                                        FontWeight="SemiBold" />
 
+
                             <Grid Grid.Row="1"
                                   RowSpacing="6"
                                   ColumnSpacing="6"
-                                  Margin="12,12,12,12">
+                                  Margin="16">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
