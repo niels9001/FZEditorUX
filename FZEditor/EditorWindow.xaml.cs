@@ -26,5 +26,10 @@ namespace FZEditor
         {
             this.InitializeComponent();
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            CardShadow.Receivers.Add(ShadowBackgroundGrid);
+        }
     }
 }

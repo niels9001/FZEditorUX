@@ -7,8 +7,12 @@
       muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
- 
+      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      mc:Ignorable="d">
+
+    <Page.Resources>
+        <ThemeShadow x:Name="CardShadow" />
+    </Page.Resources>
     <Grid x:Name="LayoutRoot"
           RowSpacing="6"
           HorizontalAlignment="Stretch"
@@ -28,46 +32,61 @@
                        Margin="12,0,0,0"
                        Text="FancyZones Editor" />
         </StackPanel>
+        <Grid x:Name="ShadowBackgroundGrid" Grid.Row="2" />
+
 
         <GridView Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <GridViewItem>
-                <Grid Width="196" Height="86">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <controls:WrapPanel Orientation="Horizontal"
+                                        HorizontalSpacing="12"
+                                        VerticalSpacing="12" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridViewItem Shadow="{StaticResource CardShadow}"
+                          CornerRadius="4"
+                          Translation="0,0,8">
+                <Grid Width="146" Height="56">
                     <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                          Margin="2"
+                          Margin="-2"
                           CornerRadius="4"
                           BorderThickness="1"
                           Background="{ThemeResource LayerFillColorDefaultBrush}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="24" />
+                            <RowDefinition Height="20" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="1"
                                    HorizontalAlignment="Center"
                                    Grid.Row="0"
                                    FontWeight="SemiBold"
+                                   FontSize="22"
                                    Style="{StaticResource SubheaderTextBlockStyle}"
                                    VerticalAlignment="Center" />
                         
                         <TextBlock Text="3340 x 1440" HorizontalAlignment="Center"
                                    Grid.Row="1"
                                    VerticalAlignment="Top"
+                                   FontSize="10"
                                    Style="{StaticResource CaptionTextBlockStyle}"
                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                     </Grid>
 
                 </Grid>
             </GridViewItem>
-            <GridViewItem>
+            <GridViewItem Shadow="{StaticResource CardShadow}"
+                          CornerRadius="4"
+                          Translation="0,0,8">
                 <Grid Width="196"
                       Height="86">
                     <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                          Margin="2"
+                          Margin="-2"
                           CornerRadius="4"
                           BorderThickness="1"
                           Background="{ThemeResource LayerFillColorDefaultBrush}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="24" />
+                            <RowDefinition Height="28" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="2"
                                    HorizontalAlignment="Center"
@@ -78,7 +97,7 @@
 
                         <TextBlock Text="3340 x 1440"
                                    HorizontalAlignment="Center"
-                                  
+                                  Margin="0,0,0,0"
                                    Grid.Row="1"
                                    VerticalAlignment="Top"
                                    Style="{StaticResource CaptionTextBlockStyle}"
@@ -106,11 +125,18 @@
             <TextBlock Text="Select layout" Margin="16,16,0,0" Style="{StaticResource SubtitleTextBlockStyle}" />
 
             <GridView Grid.Row="1"
-                      Margin="16"
+                      Margin="15,16,16,16"
                       HorizontalAlignment="Left"
-                      VerticalAlignment="Top">
-                <GridViewItem>
+                      VerticalAlignment="Top" >
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel Orientation="Horizontal" HorizontalSpacing="12" VerticalSpacing="12"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridViewItem Shadow="{StaticResource CardShadow}" CornerRadius="4"
+                              Translation="0,0,8">
                     <Grid Width="196"
+                          Margin="-2"
                           Height="160">
                         <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                               Margin="2"
@@ -152,8 +178,11 @@
 
                     </Grid>
                 </GridViewItem>
-                <GridViewItem>
+                <GridViewItem Shadow="{StaticResource CardShadow}"
+                              CornerRadius="4"
+                              Translation="0,0,8">
                     <Grid Width="196"
+                          Margin="-2"
                           Height="160">
                         <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                               Margin="2"
@@ -197,8 +226,11 @@
 
                     </Grid>
                 </GridViewItem>
-                <GridViewItem>
+                <GridViewItem Shadow="{StaticResource CardShadow}"
+                              CornerRadius="4"
+                              Translation="0,0,8">
                     <Grid Width="196"
+                          Margin="-2"
                           Height="160">
                         <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                               Margin="2"
@@ -256,8 +288,11 @@
 
                     </Grid>
                 </GridViewItem>
-                <GridViewItem>
+                <GridViewItem Shadow="{StaticResource CardShadow}"
+                              CornerRadius="4"
+                              Translation="0,0,8">
                     <Grid Width="196"
+                          Margin="-2"
                           Height="160">
                         <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                               Margin="2"
@@ -273,7 +308,7 @@
                             <TextBlock Text="Stream"
                                        HorizontalAlignment="Left"
                                        Grid.Row="0"
-                                       Margin="12,12,12,2"
+                                       Margin="24,24,0,0"
                                        VerticalAlignment="Top"
                                        Style="{StaticResource BodyTextBlockStyle}"
                                        FontWeight="SemiBold" />
@@ -281,7 +316,7 @@
                             <Grid Grid.Row="1"
                                   RowSpacing="6"
                                   ColumnSpacing="6"
-                                  Margin="12,12,12,12">
+                                  Margin="24">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
@@ -292,11 +327,7 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                             
-                                <Border Background="{ThemeResource ZoneBackgroundBrush}"
-                                        Grid.Column="1"
-                                        CornerRadius="0,4,0,0"
-                                        BorderBrush="{ThemeResource ZoneBorderBrush}"
-                                        BorderThickness="1" />
+                        
                                 <Border Background="{ThemeResource ZoneBackgroundBrush}"
                                         CornerRadius="4,0,0,4"
                                         BorderBrush="{ThemeResource ZoneBorderBrush}"
@@ -327,8 +358,11 @@
 
                     </Grid>
                 </GridViewItem>
-                <GridViewItem>
+                <GridViewItem Shadow="{StaticResource CardShadow}"
+                              CornerRadius="4"
+                              Translation="0,0,8">
                     <Grid Width="196"
+                          Margin="-2"
                           Height="160">
                         <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                               Margin="2"
@@ -385,6 +419,30 @@
                     </Grid>
                 </GridViewItem>
             </GridView>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="1"
+                        Margin="16,16"
+                        CornerRadius="4"
+                        Shadow="{StaticResource CardShadow}"
+                        Translation="0,0,24"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
+                <Button Grid.Column="0"
+                        
+                        Height="36">
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <TextBlock x:Name="Icon"
+                                   FontFamily="Segoe Fluent Icons"
+                                   Foreground="{ThemeResource SystemAccentColorLight2}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,0"
+                                   Text="&#xE109;" />
+                        <TextBlock Text="Create new layout" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

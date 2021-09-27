@@ -7,17 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
       xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    Loaded="Page_Loaded"
       xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
       xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
       muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
       mc:Ignorable="d">
     <Page.Resources>
-        <!--<media:AttachedCardShadow x:Key="CommonShadow"
-                                  Opacity="0.04"
-                                  BlurRadius="4"
-                                 Offset="0,2"  />-->
-        <local:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
 
+        <local:DoubleToThicknessConverter x:Key="DoubleToThicknessConverter" />
+        <ThemeShadow x:Name="CardShadow"  />
         <Style TargetType="controls:GridSplitter">
             <Setter Property="IsTabStop" Value="True"></Setter>
             <Setter Property="UseSystemFocusVisuals" Value="True"></Setter>
@@ -47,7 +45,7 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresentor" Foreground="Red" Content="{TemplateBinding Element}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+                            <ContentPresenter x:Name="ContentPresentor" Content="{TemplateBinding Element}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -77,11 +75,24 @@
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
         </StackPanel>-->
         
-        <Grid Grid.Row="2" Padding="64" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0,1,0,0" Background="{ThemeResource LayerFillColorDefaultBrush}" Grid.RowSpan="2">
-
-            <controls:ConstrainedBox Grid.Row="1" AspectRatio="16:9"  Margin="0" VerticalAlignment="Center">
+        <Grid Grid.Row="2" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0,1,0,0" Background="{ThemeResource LayerFillColorDefaultBrush}" Grid.RowSpan="2">
+            <Grid x:Name="ShadowBackgroundGrid"  />
+            <Grid  Shadow="{StaticResource CardShadow}"
+                   CornerRadius="8"
+                   Margin="64"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Translation="0,0,32">
+                <controls:ConstrainedBox Grid.Row="1"
+                                    
+                                     AspectRatio="16:9"
+                                 
+                                    
+                                   CornerRadius="8"
+                                     VerticalAlignment="Center"
+                                    >
                 <Grid CornerRadius="8">
-                    <Image Source="ms-appx:///Assets/Wallpaper.jpg" Stretch="UniformToFill" CenterPoint="0.5,0.5,0.5" />
+                    <Image Source="ms-appx:///Assets/Wallpaper2.jpg" Stretch="UniformToFill" CenterPoint="0.5,0.5,0.5" />
 
                     <Grid ColumnSpacing="{Binding ElementName=SpacingSlider, Path=Value, Mode=OneWay}"
                           Margin="{Binding ElementName=SpacingSlider, Path=Value, Mode=OneWay, Converter={StaticResource DoubleToThicknessConverter}}">
@@ -129,6 +140,7 @@
                                            Grid.Column="0"
                                                Margin="-24,0,0,0"
                                            ResizeDirection="Auto"
+                                               Foreground="White"
                                            ResizeBehavior="BasedOnAlignment"
                                            CursorBehavior="ChangeOnSplitterHover"
                                            Width="16"/>
@@ -137,7 +149,8 @@
                                            Grid.Column="2"
                                                Margin="-24,0,0,0"
                                            ResizeDirection="Auto"
-                                           ResizeBehavior="BasedOnAlignment"
+                                                   Foreground="White"
+                                                   ResizeBehavior="BasedOnAlignment"
                                            CursorBehavior="ChangeOnSplitterHover"
                                            Width="16"/>
 
@@ -146,6 +159,7 @@
                     </Grid>
                 </Grid>
             </controls:ConstrainedBox>
+            </Grid>
         </Grid>
 
 
@@ -206,6 +220,7 @@
             <Button Height="36"
                               BorderBrush="Transparent"
                           Background="Transparent"
+
                           FontFamily="Segoe Fluent Icons"
                           ToolTipService.ToolTip="Highlight distance">
                 <Button.Content>
@@ -228,26 +243,20 @@
         
         <StackPanel Orientation="Horizontal" Margin="16,0,16,8" Grid.Row="1"
                         HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <AppBarButton Width="40" Height="48"
-                              VerticalAlignment="Center"
-                                  ToolTipService.ToolTip="Full screen">
-                    <AppBarButton.Icon>
-                        <FontIcon FontFamily="Segoe Fluent Icons"
-                                      Glyph="&#xE1D9;" />
-                    </AppBarButton.Icon>
-                </AppBarButton>
-                <Button Style="{StaticResource AccentButtonStyle}">
-                    <Button.Content>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE13E;"
-                                   VerticalAlignment="Center"
-                                   Margin="0,2,8,0"
-                                   FontFamily="Segoe Fluent Icons" />
-                            <TextBlock Text="Save" />
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
-            </StackPanel>
+            <Button Height="36"
+                    BorderBrush="Transparent"
+                    Background="Transparent"
+                    FontFamily="Segoe Fluent Icons"
+                    Content="&#xE1D9;"
+                    VerticalAlignment="Center"
+                    ToolTipService.ToolTip="Full screen" />
+
+
+            <Button Style="{StaticResource AccentButtonStyle}"
+                    Content="Save" />
+      
+
+        </StackPanel>
           
         <StackPanel Orientation="Horizontal"
                     Grid.ColumnSpan="2"

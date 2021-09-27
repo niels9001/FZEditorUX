@@ -35,6 +35,7 @@ namespace FZEditor
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            CardShadow.Receivers.Add(ShadowBackgroundGrid);
             await OpenPageAsWindowAsync(typeof(EditorWindow));
         }
 
