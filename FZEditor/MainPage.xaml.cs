@@ -18,7 +18,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace FZEditor
 {
@@ -36,7 +38,7 @@ namespace FZEditor
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             CardShadow.Receivers.Add(ShadowBackgroundGrid);
-            await OpenPageAsWindowAsync(typeof(EditorWindow));
+         
         }
 
         private async Task<bool> OpenPageAsWindowAsync(Type t)
@@ -65,5 +67,27 @@ namespace FZEditor
 
             return await ApplicationViewSwitcher.TryShowAsStandaloneAsync(id);
         }
+
+        private async void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            await OpenPageAsWindowAsync(typeof(EditorWindow));
+        }
+    }
+
+    public class OpenFlyoutAction : DependencyObject
+    {
+        public object Execute(object sender, object parameter)
+        {
+            FlyoutBase.ShowAttachedFlyout(TargetObject ?? (FrameworkElement)sender);
+            return null;
+        }
+
+        public Control TargetObject
+        {
+            get { return (Control)GetValue(TargetObjectProperty); }
+            set { SetValue(TargetObjectProperty, value); }
+        }
+        public static readonly DependencyProperty TargetObjectProperty =
+            DependencyProperty.Register(nameof(TargetObject), typeof(Control), typeof(OpenFlyoutAction), new PropertyMetadata(null));
     }
 }

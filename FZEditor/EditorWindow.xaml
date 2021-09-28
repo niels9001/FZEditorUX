@@ -45,7 +45,7 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresentor" Content="{TemplateBinding Element}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+                            <ContentPresenter x:Name="ContentPresentor" Visibility="Collapsed" Content="{TemplateBinding Element}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -79,7 +79,7 @@
             <Grid x:Name="ShadowBackgroundGrid"  />
             <Grid  Shadow="{StaticResource CardShadow}"
                    CornerRadius="8"
-                   Margin="64"
+                   Margin="48"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Translation="0,0,32">
@@ -92,7 +92,7 @@
                                      VerticalAlignment="Center"
                                     >
                 <Grid CornerRadius="8">
-                    <Image Source="ms-appx:///Assets/Wallpaper2.jpg" Stretch="UniformToFill" CenterPoint="0.5,0.5,0.5" />
+                    <Image Source="ms-appx:///Assets/Wallpaper4.jpg" Stretch="UniformToFill" CenterPoint="0.5,0.5,0.5" />
 
                     <Grid ColumnSpacing="{Binding ElementName=SpacingSlider, Path=Value, Mode=OneWay}"
                           Margin="{Binding ElementName=SpacingSlider, Path=Value, Mode=OneWay, Converter={StaticResource DoubleToThicknessConverter}}">
@@ -211,7 +211,7 @@
                 <Button.Flyout>
                     <Flyout>
                         <StackPanel Orientation="Horizontal">
-                            <Slider x:Name="SpacingSlider" Minimum="0" Maximum="64" MinWidth="120"/>
+                            <Slider x:Name="SpacingSlider" Minimum="0" Value="14" Maximum="64" MinWidth="120"/>
                         </StackPanel>
                     </Flyout>
                 </Button.Flyout>

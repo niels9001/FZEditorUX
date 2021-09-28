@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FZEditor"
       xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+
       muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -137,54 +138,7 @@
                         <controls:WrapPanel Orientation="Horizontal" HorizontalSpacing="12" VerticalSpacing="12"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
-                <GridViewItem Shadow="{StaticResource CardShadow}" CornerRadius="4"
-                              Translation="0,0,8">
-                    <Grid Width="196"
-                          Margin="-2"
-                          Height="160">
-                        <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                              Margin="2"
-                              CornerRadius="4"
-                              BorderThickness="1"
-                              Background="{ThemeResource LayerFillColorDefaultBrush}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-          
-
-                            <TextBlock Text="Focus"
-                                       HorizontalAlignment="Left"
-                                       Grid.Row="0"
-                                       Margin="16,16,0,4"
-                                       VerticalAlignment="Top"
-                                       Style="{StaticResource BodyTextBlockStyle}"
-                                       FontWeight="SemiBold" />
-
-
-                            <Grid Grid.Row="1"
-                                  ColumnSpacing="6"
-                                  Margin="16">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="3*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Border Background="{ThemeResource ZoneBackgroundBrush}" CornerRadius="4,0,0,4"
-                                        BorderBrush="{ThemeResource ZoneBorderBrush}" BorderThickness="1" />
-                                <Border Background="{ThemeResource ZoneBackgroundBrush}"
-                                      Grid.Column="1"
-                                        BorderBrush="{ThemeResource ZoneBorderBrush}"
-                                        BorderThickness="1" />
-                                <Border Background="{ThemeResource ZoneBackgroundBrush}"
-                                        CornerRadius="0,4,4,0"
-                                        BorderBrush="{ThemeResource ZoneBorderBrush}"
-                                        BorderThickness="1" Grid.Column="2" />
-                            </Grid>
-                        </Grid>
-
-                    </Grid>
-                </GridViewItem>
+        
                 <GridViewItem Shadow="{StaticResource CardShadow}"
                               CornerRadius="4"
                               Translation="0,0,8">
@@ -231,6 +185,89 @@
       
                             </Grid>
                         </Grid>
+
+                    </Grid>
+                </GridViewItem>
+                <GridViewItem Shadow="{StaticResource CardShadow}"
+                              CornerRadius="4"
+                              Translation="0,0,8">
+                    <Grid Width="196"
+                          Margin="-2"
+                          Height="160">
+
+
+                        <Grid BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                              Margin="2"
+                              CornerRadius="4"
+                              BorderThickness="1"
+                              Background="{ThemeResource LayerFillColorDefaultBrush}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+
+                            <TextBlock Text="Focus"
+                                       HorizontalAlignment="Left"
+                                       Grid.Row="0"
+                                       Margin="16,16,0,4"
+                                       VerticalAlignment="Top"
+                                       Style="{StaticResource BodyTextBlockStyle}"
+                                       FontWeight="SemiBold" />
+
+
+                            <Grid Grid.Row="1"
+                                  ColumnSpacing="6"
+                                  Margin="16">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Border Background="{ThemeResource ZoneBackgroundBrush}"
+                                        CornerRadius="4,0,0,4"
+                                        BorderBrush="{ThemeResource ZoneBorderBrush}"
+                                        BorderThickness="1" />
+                                <Border Background="{ThemeResource ZoneBackgroundBrush}"
+                                        Grid.Column="1"
+                                        BorderBrush="{ThemeResource ZoneBorderBrush}"
+                                        BorderThickness="1" />
+                                <Border Background="{ThemeResource ZoneBackgroundBrush}"
+                                        CornerRadius="0,4,4,0"
+                                        BorderBrush="{ThemeResource ZoneBorderBrush}"
+                                        BorderThickness="1"
+                                        Grid.Column="2" />
+                            </Grid>
+                        </Grid>
+                        <Button HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Margin="10"
+                                Opacity="0">
+                            <Button.Flyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Edit" Click="MenuFlyoutItem_Click">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE104;"
+                                                      FontFamily="Segoe Fluent Icons" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+                                    <MenuFlyoutItem Text="Rename">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE13E;"
+                                                      FontFamily="Segoe Fluent Icons" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+                                    <MenuFlyoutSeparator />
+                                    <MenuFlyoutItem Text="Delete">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE107;"
+                                                      FontFamily="Segoe Fluent Icons" />
+                                        </MenuFlyoutItem.Icon>
+                                    </MenuFlyoutItem>
+
+                                </MenuFlyout>
+                            </Button.Flyout>
+                        </Button>
 
                     </Grid>
                 </GridViewItem>
